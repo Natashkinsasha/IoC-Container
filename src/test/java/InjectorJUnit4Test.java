@@ -11,10 +11,10 @@ public class InjectorJUnit4Test extends Assert {
     @Test
     public void testGetInstanceSingeltonWithoutException() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchMethodException, HaventDependancyException, ClassHaventClosableInterfaceException, HaventFreeObjectException {
         ObjectContainer objectContainer = InjectorCreater.getInstance().create();
-        objectContainer.addDependence(Fabrica.class, FabricaImpl.class);
-        Fabrica fabrica = objectContainer.getInstance(Fabrica.class);
+        objectContainer.addDependence(FabricaImpl.class, FabricaImpl.class);
+        Fabrica fabrica = objectContainer.getInstance(FabricaImpl.class);
         fabrica.setName("fabrica");
-        Fabrica fabrica2 = objectContainer.getInstance(Fabrica.class);
+        Fabrica fabrica2 = objectContainer.getInstance(FabricaImpl.class);
         fabrica2.setName("fabrica2");
         assertEquals(fabrica, fabrica2);
     }
